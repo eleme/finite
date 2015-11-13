@@ -1,0 +1,3 @@
+pr:
+	@echo "于是就给 [1meleme[0m 的 [1mmaster[0m 提了个 Pull Request ..."
+	@open "https://github.com/eleme/$(projectname)/compare/master...$$(git config user.name):$$(git rev-parse --abbrev-ref HEAD)"

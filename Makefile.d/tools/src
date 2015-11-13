@@ -1,0 +1,14 @@
+src/%: .noop
+	@\
+	test -f $@ || exit 0; \
+	out=$$(echo $@ | sed 's/^src/dist/' | sed 's/\.scss$$/.css/'); \
+	echo "[1mBuild[0m $$out ... \c"; \
+	mkdir -p $$(dirname $$out); \
+	loader="$($(suffix $@).loader)"; \
+	test "$$loader" || loader="cat -"; \
+	size=$$(cat $@ | $$loader | tee $$out | wc -c | awk '{print $$1}'); \
+	if [ $$size -gt 0 ]; then \
+	  echo "[35m$$size[32m bytes[0m"; \
+	else \
+	  echo "[31mError[0m"; \
+	fi

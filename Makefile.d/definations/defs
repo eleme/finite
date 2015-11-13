@@ -1,0 +1,7 @@
+projectname := $(shell git remote -v | awk 'gsub(/git@github.com:eleme\//,"",$$2){print $$2;exit}' | sed 's/\.git//g')
+commitid := $(shell git rev-parse HEAD)
+branchname := $(shell git rev-parse --abbrev-ref HEAD)
+
+watch = $(abspath ./node_modules/webspoon/bin/watch.js)
+usemin := $(abspath ./node_modules/webspoon/bin/usemin.js)
+rev := $(abspath ./node_modules/webspoon/bin/rev.js)

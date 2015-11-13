@@ -1,0 +1,4 @@
+rev: .noop
+	@echo "[1mExecute[0m rev ... \c"
+	@$(rev) -base 'dist/**/*.{html,css,js}' -static 'dist/**/*.{jpg,gif,png,svg,js}'
+	@echo "[32mOK[0m"

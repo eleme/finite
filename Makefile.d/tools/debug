@@ -1,0 +1,6 @@
+debug:
+	@echo CommitID = $(commitid)
+	@git push git@github.com:eleme/$(projectname) $(branchname):null -f
+	@curl http://eless.tools.elenet.me/api/redelivery/?format=json \
+	  -d "app_id=fe.$(projectname)&giturl=https://github.com/eleme/$(projectname)&branch=debug&commitId=$(commitid)"; \
+	  echo " on fe.$(projectname)"

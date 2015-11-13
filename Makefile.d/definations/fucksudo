@@ -1,0 +1,3 @@
+fucksudo = \ 请不要使用\ [1\;31msudo[0m\ 来\ [35mmake\ [0m
+$(fucksudo): .noop
+	@if [ "$$(uname)" = "Darwin" -a -w / ]; then exit 233; fi

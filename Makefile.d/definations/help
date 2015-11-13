@@ -1,0 +1,11 @@
+.help:
+	@echo "# building tasks"
+	@echo "$$ [35mmake rev[0m                        # rev task"
+	@echo "$$ [35mmake usemin[0m                     # usemin task"
+	@echo ""
+	@echo "# other tools"
+	@echo "$$ [35mmake watch[0m                      # start watch"
+	@echo "$$ [35mmake pr[0m                         # lauch a pull request to github"
+	@echo "$$ [35mmake permission[0m                 # fix file permission"
+	@echo "$$ [35mmake debug[0m                      # publish to alpha"
+	@echo ""

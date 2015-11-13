@@ -1,0 +1,3 @@
+permission:
+	@find src -type f | xargs chmod 644
+	@find src -type d | xargs chmod 755

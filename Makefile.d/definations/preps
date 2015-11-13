@@ -1,0 +1,2 @@
+for as with dist .noop:
+	@# $@

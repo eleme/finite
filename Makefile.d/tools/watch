@@ -1,0 +1,10 @@
+watch: .noop
+	@tip="[1mWatching ... [0m\c"; \
+	echo $$tip; \
+	$(watch) \
+	  -target "src" \
+	  -exec "[ \$$(echo \$$src | grep -v '/\\.' | wc -l) -gt 0 ] || exit" \
+	  -exec 'echo "[1G[K\c"' \
+	  -exec 'make $$src' \
+	  -exec "echo \"$$tip\"" \
+	  -exec 'osx-notifier --message $$src --title "Watched and Builded"'
