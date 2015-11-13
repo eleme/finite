@@ -1,0 +1,16 @@
+{
+  "name": "finite",
+  "version": "0.0.1",
+  "description": "F-init-E",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/eleme/finite.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/eleme/finite/issues"
+  },
+  "homepage": "https://github.com/eleme/finite#readme"
+}
