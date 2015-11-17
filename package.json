@@ -7,10 +7,18 @@
     "type": "git",
     "url": "git+https://github.com/eleme/finite.git"
   },
-  "author": "",
+  "author": "rongyi.liu@ele.me",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/eleme/finite/issues"
   },
-  "homepage": "https://github.com/eleme/finite#readme"
+  "bin": {
+    "finite": "index.js"
+  },
+  "homepage": "https://github.com/eleme/finite#readme",
+  "dependencies": {
+    "argollector": "^1.0.0",
+    "babel-fs": "^1.0.5",
+    "capacitance": "^1.0.0"
+  }
 }
