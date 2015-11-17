@@ -1,0 +1,3 @@
+cache := $(HOME)/.eleme/$(shell pwd | grep '[^/]*$$' -o)
+cache-clean:
+	@sudo rm -rf $(cache)

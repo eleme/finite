@@ -1,0 +1,6 @@
+bower_components: bower.json
+	@                                                                                               \
+	test -L bower_components || rm -rf bower_components;                                            \
+	mkdir -p $(cache)/bower_components;                                                             \
+	ln -sf $(cache)/bower_components .;                                                             \
+	bower install

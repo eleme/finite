@@ -1,0 +1,4 @@
+watch := $(abspath ./node_modules/webspoon/bin/watch.js)
+usemin := $(abspath ./node_modules/webspoon/bin/usemin.js)
+rev := $(abspath ./node_modules/webspoon/bin/rev.js)
+wildcard := $(abspath ./node_modules/webspoon/bin/wildcard.js)
