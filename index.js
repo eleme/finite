@@ -15,15 +15,20 @@ void function() {
 
   // 命令处理
   switch(argollector[0]) {
-    case 'provider':
+    case 'lib':
       return bfs.readdir(path.join(__dirname, 'Makefile.d')).then(function(list) {
         list.forEach(function(item) { console.log(item); });
       });
+    case 'dir':
+      console.log(__dirname);
+      return Promise.resolve();
+    default:
+      return Promise.reject('Unknown Command: ' + argollector[0]);
   }
 
 }().then(function() {
   process.exit(0);
 }).catch(function(error) {
-  console.error(error);
+  console.error('[31m' + error + '[0m');
   process.exit(1);
 });
