@@ -16,8 +16,12 @@ void function() {
   // 命令处理
   switch(argollector[0]) {
     case 'lib':
-      return bfs.readdir(path.join(__dirname, 'Makefile.d')).then(function(list) {
-        list.forEach(function(item) { console.log(item); });
+      var lib = path.join(__dirname, 'Makefile.d');
+      return bfs.readdir(lib).then(function(list) {
+        list.forEach(function(item) {
+          if(/\W/.test(item)) return;
+          console.log(path.join(lib, item));
+        });
       });
     case 'dir':
       console.log(__dirname);
