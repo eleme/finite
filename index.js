@@ -19,7 +19,7 @@ void function() {
       var lib = path.join(__dirname, 'Makefile.d');
       return bfs.readdir(lib).then(function(list) {
         list.forEach(function(item) {
-          if(/[^\w-]/.test(item)) return;
+          if(/^\./.test(item)) return;
           console.log(path.join(lib, item));
         });
       });
