@@ -1,5 +1,5 @@
 clean: $(if $(fucking),cache-clean,) 
-	@echo "^[[1mClear^[[0m dist directory ... \c" 
+	@echo "[1mClear[0m dist directory ... \c" 
 	@rm -rf dist 
 	@mkdir -p dist 
-	@echo "^[[32mOK^[[0m"
+	@echo "[32mOK[0m"
