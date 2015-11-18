@@ -1,5 +1,6 @@
 $(.finite-dir): Makefile
 	@sudo npm install eleme/finite -g
+	@touch $(.finite-dir)
 
 $(shell which bower):
 	@sudo npm install bower -g
