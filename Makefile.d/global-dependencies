@@ -1,8 +1,17 @@
-global-dependencies: $(fucksudo)
+$(.finite-dir): Makefile
+	@sudo npm install eleme/finite -g
+
+$(shell which bower):
+	@sudo npm install bower -g
+
+$(shell which eslint):
+	@sudo npm install eslint -g
+
+$(shell which node-sass):
+	@sudo npm install node-sass -g
+
+global-dependencies: $(fucksudo) $(.finite-dir) $(shell which node-sass) $(shell which eslint) $(shell which bower)
 	@                                                                                               \
-	test -x "$$(which bower)" || sudo npm install bower -g;                                         \
-	test -x "$$(which eslint)" || sudo npm install eslint -g;                                       \
-	test -x "$$(which node-sass)" || sudo npm install node-sass -g;                                 \
 	if [ "$$(uname)" = "Darwin" ]; then                                                             \
 	  test -x "$$(which osx-notifier)" || sudo npm install osx-notifier -g;                         \
 	fi
