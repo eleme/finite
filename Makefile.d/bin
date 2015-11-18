@@ -1,5 +1,9 @@
 .finite-dir := $(shell finite dir)
+
 watch := $(abspath $(.finite-dir)/node_modules/webspoon/bin/watch.js)
 usemin := $(abspath $(.finite-dir)/node_modules/webspoon/bin/usemin.js)
 rev := $(abspath $(.finite-dir)/node_modules/webspoon/bin/rev.js)
 wildcard := $(abspath $(.finite-dir)/node_modules/webspoon/bin/wildcard.js)
+
+babel := $(abspath $(.finite-dir)/node_modules/.bin/babel)
+babel-node := $(abspath $(.finite-dir)/node_modules/.bin/babel-node)
