@@ -1,4 +1,5 @@
 .help:
+help: .help
 	@echo "# building tasks"
 	@echo "$$ [35mmake rev[0m                        # rev task"
 	@echo "$$ [35mmake usemin[0m                     # usemin task"
