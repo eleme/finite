@@ -2,7 +2,7 @@ release:
 	@\
 	echo "[1m正在检测冲突[0m ... \c"; \
 	git fetch git@github.com:eleme/$(projectname) master > /dev/null 2>&1; \
-	lost=$$(git cherry FETCH_HEAD HEAD | grep ^- | wc -l | awk '{print $$1}'); \
+	lost=$$(git cherry $$(git merge-base FETCH_HEAD HEAD) $$(git rev-parse FETCH_HEAD) | awk 'BEGIN{i=0}{i++}END{print i}'); \
 	echo "[1G[K\c"; \
 	if [ $$lost -gt 0 ]; then \
 	  echo "‼️  [1m当前落后主分支 [35m$$lost[0m[1m 个提交，必须先执行 rebase，是否立即执行？ [0m[Y/n] \c"; \
