@@ -1,8 +1,8 @@
 global-dependencies: $(fucksudo)
-        @                                                                                               \
-        test -x "$$(which bower)" || sudo npm install bower -g;                                         \
-        test -x "$$(which eslint)" || sudo npm install eslint -g;                                       \
-        test -x "$$(which node-sass)" || sudo npm install node-sass -g;                                 \
-        if [ "$$(uname)" = "Darwin" ]; then                                                             \
-          test -x "$$(which osx-notifier)" || sudo npm install osx-notifier -g;                         \
-        fi
+	@                                                                                               \
+	test -x "$$(which bower)" || sudo npm install bower -g;                                         \
+	test -x "$$(which eslint)" || sudo npm install eslint -g;                                       \
+	test -x "$$(which node-sass)" || sudo npm install node-sass -g;                                 \
+	if [ "$$(uname)" = "Darwin" ]; then                                                             \
+	  test -x "$$(which osx-notifier)" || sudo npm install osx-notifier -g;                         \
+	fi
