@@ -1,0 +1,2 @@
+.finite-dir := $(shell finite dir)
+dist = $(filter dist,$(MAKECMDGOALS))
