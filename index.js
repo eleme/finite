@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 
 var argollector = require('argollector');
+var Capacitance = require('capacitance');
 var bfs = require('babel-fs');
 var path = require('path');
 
@@ -20,7 +21,7 @@ var findFiles = function callee(cwd) {
   });
 }
 
-void function() {
+Promise.resolve().then(function() {
 
   // 查看版本号
   if(argollector['-v'] || argollector['--version']) {
@@ -39,11 +40,22 @@ void function() {
     case 'dir':
       console.log(__dirname);
       return Promise.resolve();
+    case 'install':
+      var name = String(argollector[1]);
+      var repo = path.join(__dirname, 'repositories', name);
+      var cwd = process.cwd();
+      return bfs.readdir(cwd).then(function(list) {
+        if(list.length) throw 'Error: cwd is not empty';
+        return bfs.stat(repo).then(function(stat) {
+          if(!stat.isDirectory()) throw 'Error: cannot find ' + name;
+          return require('child_process').exec('cp -r ' + repo + '/* ' + cwd).stdout.pipe(new Capacitance());
+        });
+      });
     default:
-      return Promise.reject('Unknown Command: ' + argollector[0]);
+      throw 'Error: unknown command ' + argollector[0];
   }
 
-}().then(function() {
+}).then(function() {
   process.exit(0);
 }).catch(function(error) {
   console.error('[31m' + error + '[0m');
