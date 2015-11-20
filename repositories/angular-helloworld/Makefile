@@ -1,3 +1,15 @@
+default: help
+
+.help:
+	@echo "# common tasks"
+	@echo "$$ [35mmake[0m                            # help"
+	@echo "$$ [35mmake install[0m                    # install dependencies"
+	@echo "$$ [35mmake build[0m                      # build only"
+	@echo "$$ [35mmake build as dist[0m              # build as dist"
+	@echo "$$ [35mmake dev[0m                        # build and watch"
+	@echo "$$ [35mmake lint[0m                       # check coding style"
+	@echo ""
+
 include $(shell test -x "$$(which finite)" || sudo npm install finite@~1.0.0 -g > /dev/null; finite lib)
 
 install: global-dependencies $(if $(fucking),cache-clean,) node_modules bower_components
