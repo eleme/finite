@@ -1,5 +1,5 @@
 $(.finite-dir): Makefile
-	@sudo npm install eleme/finite -g
+	@sudo npm install finite@~1.0.0 -g
 	@touch $(.finite-dir)
 
 $(shell which bower):
