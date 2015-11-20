@@ -1,0 +1,19 @@
+<html ng-app="helloworld">
+  <head>
+    <title ng-bind="title"></title>
+    <!-- build src="/dist/vendor.js" -->
+    <script src="/bower_components/angular/angular.min.js"></script>
+    <script src="/bower_components/angular-route/angular-route.js"></script>
+    <!-- endbuild -->
+    <!-- build src="/dist/app.js" -->
+    <script src="/dist/index.js" file="dist/index.js"></script>
+    <script src="/dist/_common/header/header.js" file="dist/_common/header/header.js"></script><script src="/dist/default/default.js" file="dist/default/default.js"></script><script src="/dist/demo1/demo1.js" file="dist/demo1/demo1.js"></script>
+    <!-- endbuild -->
+    <!-- build src="/dist/css.js" -->
+    <link rel="stylesheet" href="/dist/_common/header/header.css" file="dist/_common/header/header.css" /><link rel="stylesheet" href="/dist/default/default.css" file="dist/default/default.css" /><link rel="stylesheet" href="/dist/demo1/demo1.css" file="dist/demo1/demo1.css" /><link rel="stylesheet" href="/dist/index.css" file="dist/index.css" />
+    <!-- endbuild -->
+  </head>
+  <body>
+    <div ng-view></div>
+  </body>
+</html>

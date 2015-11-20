@@ -1,0 +1,19 @@
+<html ng-app="helloworld">
+  <head>
+    <title ng-bind="title"></title>
+    <!-- build src="/dist/vendor.js" -->
+    <script src="/bower_components/angular/angular.min.js"></script>
+    <script src="/bower_components/angular-route/angular-route.js"></script>
+    <!-- endbuild -->
+    <!-- build src="/dist/app.js" -->
+    <script wildcard="dist/*.js"></script>
+    <script wildcard="dist/*/**/*.js"></script>
+    <!-- endbuild -->
+    <!-- build src="/dist/css.js" -->
+    <link rel="stylesheet" wildcard="dist/**/*.css" />
+    <!-- endbuild -->
+  </head>
+  <body>
+    <div ng-view></div>
+  </body>
+</html>

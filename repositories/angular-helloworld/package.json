@@ -1,0 +1,8 @@
+{
+  "name": "angular-helloworld",
+  "version": "1.0.0",
+  "private": true,
+  "devDependencies": {
+    "ng-annotate": "^1.0.2"
+  }
+}
