@@ -13,5 +13,5 @@ sudo npm install finite -g
 ```bash
 mkdir YOUR_PROJECT_NAME
 cd YOUR_PROJECT_NAME
-finite angular-helloworld
+finite install angular-helloworld
 ```
