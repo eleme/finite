@@ -1,6 +1,10 @@
 <div ng-controller="default">
   <header>Finite</header>
   <div class="container">
-    <a href="/demo1">demo1</a>
+    <ol>
+      <li ng-repeat="item in list">
+        <a ng-href="/demo1/{{item.name}}" ng-bind="item.name"></a>
+      </li>
+    </ol>
   </div>
 </div>

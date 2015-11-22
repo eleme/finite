@@ -1,6 +1,10 @@
 [ng-controller="default"] {
   color: red;
+  line-height: 1.5em;
   .container {
     padding: 1em;
+  }
+  a {
+    color: inherit;
   }
 }
