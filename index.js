@@ -45,19 +45,21 @@ commandHandlers.dir = function() {
 };
 
 // install 命令，将前端项目安装到当前目录（当前目录必须为空）
-commandHandlers.dir = function() {
-  var name = String(argollector[1]);
+commandHandlers.install = function() {
+  var name = argollector[1];
+  if(!name) return Promise.reject('Error: "install" command require one argument');
   var repo = path.join(__dirname, 'repositories', name);
   var cwd = process.cwd();
   return Promise.all([
     bfs.readdir(cwd),
-    bfs.stat(repo)
+    bfs.stat(repo).catch(function() {})
   ]).then(function(results) {
     // 检测 cwd 是否为空，不为空就抛异常
     if(results[0].length) throw 'Error: cwd is not empty';
     // 检测 repo 是否存在，不存在则抛出异常
-    if(!stat.isDirectory()) throw 'Error: cannot find ' + name;
+    if(!results[1] || !results[1].isDirectory()) throw 'Error: can not install "' + name + '", it\'s not found';
   }).then(function(stat) {
+    console.log('[1;32m✅  install [1;36m"' + name + '"[1;32m successfully[0m');
     // 将 repo 目录深度 copy 到 cwd 目录（这里偷个懒，创建子进程 cp -r 过去）
     return require('child_process').exec('cp -r ' + repo + '/* ' + cwd).stdout.pipe(new Capacitance());
   });
@@ -83,6 +85,8 @@ Promise.resolve().then(function() {
 }).then(function() {
   process.exit(0);
 }).catch(function(error) {
-  console.error('[31m' + error + '[0m');
+  message = '❌  [1;31m' + error + '[0m';
+  message = message.replace(/".*?"/, '[1;35m$&[1;31m');
+  console.error(message);
   process.exit(1);
 });
