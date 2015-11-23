@@ -1,6 +1,6 @@
 # Finite (F-init-E)
 
-A web front-end project one touch constructing tool.
+A web front-end project one command constructing tool.
 
 ### Install
 

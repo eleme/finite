@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "private": true,
   "devDependencies": {
-    "ng-annotate": "^1.0.2"
+    "ng-annotate": "^1.0.2",
+    "babel-preset-es2015": "^6.1.18"
   }
 }

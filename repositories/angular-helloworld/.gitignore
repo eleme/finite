@@ -1,5 +1,6 @@
 .*
 !.gitignore
+!.babelrc
 /dist
 /node_modules
 /bower_components
