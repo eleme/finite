@@ -8,11 +8,15 @@ default: help
 	@echo "$$ [35mmake build as dist[0m              # build as dist"
 	@echo "$$ [35mmake dev[0m                        # build and watch"
 	@echo "$$ [35mmake lint[0m                       # check coding style"
+	@echo "$$ [35mmake server[0m                     # run a temporary server"
 	@echo ""
 
 include $(shell test -x "$$(which finite)" || sudo npm install finite@~1.0.0 -g > /dev/null; finite lib)
 
 install: global-dependencies $(if $(fucking),cache-clean,) node_modules bower_components
+
+babel := $(abspath ./node_modules/.bin/babel)
+ng-annotate := $(abspath ./node_modules/.bin/ng-annotate)
 
 
 ############################## Unit Loader ##############################
@@ -24,7 +28,6 @@ install: global-dependencies $(if $(fucking),cache-clean,) node_modules bower_co
 
 ############################## Building Tasks ##############################
 
-ng-annotate = ./node_modules/.bin/ng-annotate
 ng-annotate: .noop
 	@echo "[1mExecute[0m $@ ... \c"
 	@find dist -name '*.js' | xargs -P 4 -I{} $(ng-annotate) -a {} -o {}
@@ -63,5 +66,6 @@ dev: install build watch
 ############################## Building Tools ##############################
 
 server:
+	@kill "$$(lsof -i:3154 -sTCP:LISTEN | awk 'NR==2{print $$2}')" > /dev/null
 	@python -m SimpleHTTPServer 3154 > /dev/null 2>&1 &
 	@open http://localhost:3154
