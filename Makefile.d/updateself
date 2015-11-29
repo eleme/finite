@@ -1,0 +1,6 @@
+$(.finite-dir): Makefile
+	@                                                                                               \
+	if [ "$$(npm info finite version)" != "$$(finite -v)" ]; then                                   \
+	  sudo npm install finite -g;                                                                   \
+	fi;                                                                                             \
+	sudo touch $(.finite-dir)

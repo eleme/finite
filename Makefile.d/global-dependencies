@@ -1,7 +1,3 @@
-$(.finite-dir): Makefile
-	@sudo npm install finite@~1.0.0 -g
-	@sudo touch $(.finite-dir)
-
 global-dependencies: $(fucksudo) $(.finite-dir)
 	@                                                                                               \
 	test -x "$$(which node-sass)" || sudo npm install node-sass -g;                                 \
