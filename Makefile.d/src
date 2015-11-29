@@ -9,6 +9,8 @@ src/%: .noop
 	size=$$(cat $@ | $$loader | tee $$out | wc -c | awk '{print $$1}'); \
 	if [ $$size -gt 0 ]; then \
 	  echo "[35m$$size[32m bytes[0m"; \
+	  test ! "$(notify)" || osx-notifier --message $$out --title "Watched and Builded" --type pass; \
 	else \
 	  echo "[31mError[0m"; \
+	  test ! "$(notify)" || osx-notifier --message $$out --title "Watched and Builded" --type fail; \
 	fi

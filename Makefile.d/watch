@@ -5,6 +5,5 @@ watch: .noop
 	  -target "src" \
 	  -exec "[ \$$(echo \$$src | grep -v '/\\.' | wc -l) -gt 0 ] || exit" \
 	  -exec 'echo "[1G[K\c"' \
-	  -exec 'make $$src' \
-	  -exec "echo \"$$tip\"" \
-	  -exec 'osx-notifier --message $$src --title "Watched and Builded"'
+	  -exec 'make $$src notify=1' \
+	  -exec "echo \"$$tip\""
