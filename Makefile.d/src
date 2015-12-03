@@ -1,16 +1,26 @@
 src/%: .noop
 	@\
 	test -f $@ || exit 0; \
-	out=$$(echo $@ | sed 's/^src/dist/' | sed 's/\.scss$$/.css/'); \
-	echo "[1mBuild[0m $$out ... \c"; \
-	mkdir -p $$(dirname $$out); \
+	src=$@; \
+	dist=$$(echo $@ | sed 's/^src/dist/' | sed 's/\.scss$$/.css/'); \
+	echo "[1mBuild[0m $$dist ... \c"; \
+	mkdir -p $$(dirname $$dist); \
 	loader="$($(suffix $@).loader)"; \
-	test "$$loader" || loader="cat -"; \
-	size=$$(cat $@ | $$loader | tee $$out | wc -c | awk '{print $$1}'); \
-	if [ $$size -gt 0 ]; then \
-	  echo "[35m$$size[32m bytes[0m"; \
-	  test ! "$(notify)" || osx-notifier --message $$out --title "Watched and Builded" --type pass; \
+	if [ "$$loader" ]; then \
+	  cat $$src | eval $$loader > $$dist; \
+	  status=$$?; \
+	fi; \
+	processor="$($(suffix $@).processor)"; \
+	if [ "$$processor" ]; then \
+	  eval $$processor; \
+	  status=$$?; \
+	fi; \
+	test $$status || cp $$src $$dist; \
+	notify(){ test ! "$(notify)" || osx-notifier --message $$dist --title "Watched and Builded" --type $$1; }; \
+	if [ "$$status" = "0" -o "$$status" = "" ]; then \
+	  echo "[35m$$(wc -c $$dist | awk '{print $$1}')[32m bytes[0m"; \
+	  notify pass; \
 	else \
 	  echo "[31mError[0m"; \
-	  test ! "$(notify)" || osx-notifier --message $$out --title "Watched and Builded" --type fail; \
+	  notify fail; \
 	fi
