@@ -16,7 +16,7 @@ src/%: .noop
 	  status=$$?; \
 	fi; \
 	test $$status || cp $$src $$dist; \
-	notify(){ test ! "$(notify)" || osx-notifier --message $$dist --title "Watched and Builded" --type $$1; }; \
+	notify(){ test ! "$(notify)" || osx-notifier --message $$dist --title "Changes found and built" --type $$1; }; \
 	if [ "$$status" = "0" -o "$$status" = "" ]; then \
 	  echo "[35m$$(wc -c $$dist | awk '{print $$1}')[32m bytes[0m"; \
 	  notify pass; \
