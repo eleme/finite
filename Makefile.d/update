@@ -1,0 +1,2 @@
+update:
+	@cp package.json $(cache) && cd $(cache) && npm update
