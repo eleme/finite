@@ -66,6 +66,6 @@ dev: install build watch
 ############################## Building Tools ##############################
 
 server:
-	@kill "$$(lsof -i:3154 -sTCP:LISTEN | awk 'NR==2{print $$2}')" > /dev/null
+	@lsof -i:3154 -sTCP:LISTEN | awk 'NR==2{print $$2}' | xargs kill > /dev/null
 	@python -m SimpleHTTPServer 3154 > /dev/null 2>&1 &
 	@open http://localhost:3154
