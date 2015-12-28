@@ -67,5 +67,6 @@ dev: install build watch
 
 server:
 	@lsof -i:3154 -sTCP:LISTEN | awk 'NR==2{print $$2}' | xargs kill > /dev/null
+	@ln -fs dist/index.html .
 	@python -m SimpleHTTPServer 3154 > /dev/null 2>&1 &
 	@open http://localhost:3154
