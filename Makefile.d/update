@@ -1,2 +1,5 @@
-update:
-	@cp package.json $(cache) && cd $(cache) && npm update
+update: node_modules
+	@                                               \
+	src=$$(readlink node_modules)/..;               \
+	cp package.json $$src;                          \
+	cd $$src && npm update
