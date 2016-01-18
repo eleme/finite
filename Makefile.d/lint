@@ -1,4 +1,4 @@
 .codingstylejoy = \ [1\;35m注意代码规范啊亲~\ 😂\ \ [0m
 $(.codingstylejoy):
-	@eslint src $(if $(dist),,||:)
+	@eslint src --max-warnings 0
 lint: $(.codingstylejoy)
