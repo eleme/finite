@@ -4,8 +4,10 @@ php:
 	test $$files || exit 0;                                                         \
 	echo "[1mParse[0m php files ... \c";                                        \
 	count=0;                                                                        \
- 	for f in $$files; do                                                            \
-	  php $$f > $$(sed 's/src\/\(.*\)\.php/dist\/\1/' <<< $$f);                      \
+	for src in $$files; do                                                          \
+	  dist=$$(sed 's/src\/\(.*\)\.php/dist\/\1/' <<< $$src);                        \
+	  mkdir -p $${dist%/*};                                                         \
+	  php $$src > $$dist;                                                           \
 	  let count++;                                                                  \
 	done;                                                                           \
 	echo "[35m$$count[32m files generated[0m";                                \
