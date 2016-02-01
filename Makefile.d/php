@@ -8,6 +8,6 @@ php:
 	  dist=$$(echo $$src | sed 's/src\/\(.*\)\.php/dist\/\1/');                     \
 	  mkdir -p $${dist%/*};                                                         \
 	  php $$src > $$dist;                                                           \
-	  let count++;                                                                  \
+	  count=$$(expr $$count + 1);                                                   \
 	done;                                                                           \
 	echo "[35m$$count[32m files generated[0m";                                \
