@@ -5,7 +5,7 @@ php:
 	echo "[1mParse[0m php files ... \c";                                        \
 	count=0;                                                                        \
 	for src in $$files; do                                                          \
-	  dist=$$(sed 's/src\/\(.*\)\.php/dist\/\1/' <<< $$src);                        \
+	  dist=$$(echo $$src | sed 's/src\/\(.*\)\.php/dist\/\1/');                     \
 	  mkdir -p $${dist%/*};                                                         \
 	  php $$src > $$dist;                                                           \
 	  let count++;                                                                  \
