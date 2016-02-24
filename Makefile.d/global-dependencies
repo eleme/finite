@@ -3,7 +3,7 @@ global-dependencies: $(fucksudo) $(.finite-dir)
 	test -x "$$(which node-sass)" || sudo npm install node-sass -g;                                 \
 	test -x "$$(which bower)" || sudo npm install bower -g;                                         \
 	test -x "$$(which eslint)" || sudo npm install eslint@^1.0.0 -g;                                \
-	test -d "$(npm root -g)/babel-eslint" || sudo npm install babel-eslint@^5.0.0 -g;               \
+	test -d "$$(npm root -g)/babel-eslint" || sudo npm install babel-eslint@^5.0.0 -g;               \
 	if [ "$$(uname)" = "Darwin" ]; then                                                             \
 	  test -x "$$(which osx-notifier)" || sudo npm install osx-notifier -g;                         \
 	fi
