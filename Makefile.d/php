@@ -1,7 +1,7 @@
 php:
 	@                                                                               \
 	files=$$(find src -name '*.php');                                               \
-	test $$files || exit 0;                                                         \
+	test "$$files" || exit 0;                                                       \
 	echo "[1mParse[0m php files ... \c";                                        \
 	count=0;                                                                        \
 	for src in $$files; do                                                          \
