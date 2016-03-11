@@ -1,0 +1,97 @@
+0 info it worked if it ends with ok
+1 verbose cli [ '/usr/local/bin/node', '/usr/local/bin/npm', 'publish' ]
+2 info using npm@3.4.1
+3 info using node@v5.4.1
+4 verbose publish [ '.' ]
+5 silly cache add args [ '.', null ]
+6 verbose cache add spec .
+7 silly cache add parsed spec Result {
+7 silly cache add   raw: '.',
+7 silly cache add   scope: null,
+7 silly cache add   name: null,
+7 silly cache add   rawSpec: '.',
+7 silly cache add   spec: '/Users/yanagieiichi/Develop/finite',
+7 silly cache add   type: 'directory' }
+8 verbose addLocalDirectory /Users/yanagieiichi/.npm/finite/1.0.24/package.tgz not in flight; packing
+9 info lifecycle finite@1.0.24~prepublish: finite@1.0.24
+10 silly lifecycle finite@1.0.24~prepublish: no script for prepublish, continuing
+11 verbose tar pack [ '/Users/yanagieiichi/.npm/finite/1.0.24/package.tgz',
+11 verbose tar pack   '/Users/yanagieiichi/Develop/finite' ]
+12 verbose tarball /Users/yanagieiichi/.npm/finite/1.0.24/package.tgz
+13 verbose folder /Users/yanagieiichi/Develop/finite
+14 verbose addLocalTarball adding from inside cache /Users/yanagieiichi/.npm/finite/1.0.24/package.tgz
+15 silly cache afterAdd finite@1.0.24
+16 verbose afterAdd /Users/yanagieiichi/.npm/finite/1.0.24/package/package.json not in flight; writing
+17 verbose afterAdd /Users/yanagieiichi/.npm/finite/1.0.24/package/package.json written
+18 silly publish { name: 'finite',
+18 silly publish   version: '1.0.24',
+18 silly publish   description: 'F-init-E',
+18 silly publish   main: 'index.js',
+18 silly publish   repository: { type: 'git', url: 'git+https://github.com/eleme/finite.git' },
+18 silly publish   author: { name: 'rongyi.liu@ele.me' },
+18 silly publish   license: 'ISC',
+18 silly publish   bugs: { url: 'https://github.com/eleme/finite/issues' },
+18 silly publish   bin: { finite: 'index.js' },
+18 silly publish   homepage: 'https://github.com/eleme/finite#readme',
+18 silly publish   dependencies:
+18 silly publish    { argollector: '~1.0.0',
+18 silly publish      'babel-fs': '~1.0.5',
+18 silly publish      capacitance: '~1.0.0',
+18 silly publish      webspoon: '~1.3.16' },
+18 silly publish   readme: '# Finite (F-init-E)\n\nA web front-end project one command constructing tool.\n\n### Install\n\n```bash\nsudo npm install finite -g\n```\n\n### Create a new angular project\n\n```bash\nmkdir YOUR_PROJECT_NAME\ncd YOUR_PROJECT_NAME\nfinite install angular-helloworld\n```\n\n### MAKE Tools\n\nInstall global dependencies into your system, such as "node-sass", "bower", or "eslint".\n\n```bash\nmake global-dependencies\n```\n\nInstall project dependencies with bower.json or package.json.\n\n```bash\nmake bower_components\nmake node_modules\n```\n\nExecute some building tasks with <a target="_blank" href="/elemefe/webspoon">webspoon</a>.\n\n```bash\nmake rev\nmake usemin\nmake watch\n```\n\nParse php files, and output to dist.\n\n```bash\nmake php\n```\n\nCheck coding styles with eslint.\n\n```bash\nmake lint\n```\n\nUnit building.\n\n```Makefile\n.js.loader := babel\n.scss.processor := node-sass $$src -d $$dist\n```\n\n```bash\nmake src/a.js # cat $$src | babel > $$dist\n```\n\n```bash\nmake src/a.scss # node-sass $$src -d $$dist\n```\n',
+18 silly publish   readmeFilename: 'README.md',
+18 silly publish   gitHead: '2cd9da6b3748b5c793aeb32f288e59a74b04ef32',
+18 silly publish   _id: 'finite@1.0.24',
+18 silly publish   scripts: {},
+18 silly publish   _shasum: 'a0ab7651665d2542de4c358c76e07bf8631da34a',
+18 silly publish   _from: '.' }
+19 verbose getPublishConfig undefined
+20 silly mapToRegistry name finite
+21 silly mapToRegistry using default registry
+22 silly mapToRegistry registry https://registry.npmjs.org/
+23 silly mapToRegistry uri https://registry.npmjs.org/finite
+24 verbose publish registryBase https://registry.npmjs.org/
+25 silly publish uploading /Users/yanagieiichi/.npm/finite/1.0.24/package.tgz
+26 verbose request uri https://registry.npmjs.org/finite
+27 verbose request sending authorization for write operation
+28 info attempt registry request try #1 at 17:32:58
+29 verbose request using bearer token for auth
+30 verbose request id 57a16ec892c8b53e
+31 http request PUT https://registry.npmjs.org/finite
+32 http 403 https://registry.npmjs.org/finite
+33 verbose headers { 'content-type': 'application/json',
+33 verbose headers   'cache-control': 'max-age=300',
+33 verbose headers   'content-length': '96',
+33 verbose headers   'accept-ranges': 'bytes',
+33 verbose headers   date: 'Fri, 11 Mar 2016 09:33:00 GMT',
+33 verbose headers   via: '1.1 varnish',
+33 verbose headers   connection: 'keep-alive',
+33 verbose headers   'x-served-by': 'cache-hkg6820-HKG',
+33 verbose headers   'x-cache': 'MISS',
+33 verbose headers   'x-cache-hits': '0',
+33 verbose headers   'x-timer': 'S1457688779.501963,VS0,VE881' }
+34 verbose request invalidating /Users/yanagieiichi/.npm/registry.npmjs.org/finite on PUT
+35 error publish Failed PUT 403
+36 verbose stack Error: "You cannot publish over the previously published version 1.0.24." : finite
+36 verbose stack     at makeError (/usr/local/lib/node_modules/npm/node_modules/npm-registry-client/lib/request.js:264:12)
+36 verbose stack     at CachingRegistryClient.<anonymous> (/usr/local/lib/node_modules/npm/node_modules/npm-registry-client/lib/request.js:252:14)
+36 verbose stack     at Request._callback (/usr/local/lib/node_modules/npm/node_modules/npm-registry-client/lib/request.js:172:14)
+36 verbose stack     at Request.self.callback (/usr/local/lib/node_modules/npm/node_modules/request/request.js:198:22)
+36 verbose stack     at emitTwo (events.js:87:13)
+36 verbose stack     at Request.emit (events.js:172:7)
+36 verbose stack     at Request.<anonymous> (/usr/local/lib/node_modules/npm/node_modules/request/request.js:1082:10)
+36 verbose stack     at emitOne (events.js:82:20)
+36 verbose stack     at Request.emit (events.js:169:7)
+36 verbose stack     at IncomingMessage.<anonymous> (/usr/local/lib/node_modules/npm/node_modules/request/request.js:1009:12)
+37 verbose statusCode 403
+38 verbose pkgid finite
+39 verbose cwd /Users/yanagieiichi/Develop/finite
+40 error Darwin 14.5.0
+41 error argv "/usr/local/bin/node" "/usr/local/bin/npm" "publish"
+42 error node v5.4.1
+43 error npm  v3.4.1
+44 error code E403
+45 error "You cannot publish over the previously published version 1.0.24." : finite
+46 error If you need help, you may report this error at:
+46 error     <https://github.com/npm/npm/issues>
+47 verbose exit [ 1, true ]
