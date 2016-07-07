@@ -1,4 +1,6 @@
 .codingstylejoy = \ [1\;35m注意代码规范啊亲~\ 😂\ \ [0m
+.localEslint = ./node_modules/.bin/eslint
+.eslint = $(shell test -x $(.localEslint) && echo $(.localEslint) || echo eslint)
 $(.codingstylejoy):
-	@test "$(.codingstylejoy)" = 'DISABLED' || eslint src --max-warnings 0
+	@test "$(.codingstylejoy)" = 'DISABLED' || $(.eslint) src --max-warnings 0
 lint: $(.codingstylejoy)
