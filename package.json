@@ -1,6 +1,6 @@
 {
   "name": "finite",
-  "version": "1.0.26",
+  "version": "1.0.27",
   "description": "F-init-E",
   "main": "index.js",
   "repository": {
@@ -20,6 +20,6 @@
     "argollector": "~1.0.0",
     "babel-fs": "~1.0.5",
     "capacitance": "~1.0.0",
-    "webspoon": "~1.4.0"
+    "webspoon": "~1.4.1"
   }
 }

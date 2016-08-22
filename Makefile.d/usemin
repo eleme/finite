@@ -1,4 +1,2 @@
 usemin: .noop
-	@echo "[1mExecute[0m usemin ... \c"
 	@$(usemin) 'dist/**/*.{html,css,js}'
-	@echo "[32mOK[0m"
