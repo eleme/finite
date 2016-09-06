@@ -1,2 +1,2 @@
 usemin: .noop
-	@$(usemin) 'dist/**/*.{html,css,js}'
+	@$(usemin) 'dist/**/*.{html,css,js}' --usemin-cache ~/.finite/.webspoon
